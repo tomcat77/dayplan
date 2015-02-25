@@ -1,4 +1,24 @@
 .task-header {
-    background-color: #1a8bff;
-    color: white;
+    -fx-background-color: #1a8bff;
+    -fx-text-fill: black;
+}
+
+.notes-header {
+    -fx-background-color: #ff963d;
+    -fx-text-fill: black;
+}
+
+.events-header {
+    -fx-background-color: #ff6166;
+    -fx-text-fill: black;
+}
+
+.routines-header {
+    -fx-background-color: #1d8a23;
+    -fx-text-fill: black;
+}
+
+.date-label {
+    -fx-background-color: lightgray;
+    -fx-font-weight: bold;
 }
