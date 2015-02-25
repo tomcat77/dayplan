@@ -1,44 +1,65 @@
 package dayplan.desktop.ui.model;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.util.Date;
 
 /**
  * @author vmuravlev
  */
 public class Task {
-    private String title;
-    private TaskStatus status;
-    private Date dueDate;
+    private StringProperty title;
+    private ObjectProperty<TaskStatus> status;
+    private ObjectProperty<Date> dueDate;
 
     public Task() {
+        this.title = new SimpleStringProperty();
+        this.status = new SimpleObjectProperty<>();
+        this.dueDate = new SimpleObjectProperty<>();
     }
 
     public Task(String title) {
-        this.title = title;
-        this.status = TaskStatus.UNCOMPLETE;
+        this();
+        this.setTitle(title);
+        this.setStatus(TaskStatus.UNCOMPLETE);
     }
 
     public String getTitle() {
+        return title.get();
+    }
+
+    public StringProperty titleProperty() {
         return title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.title.set(title);
     }
 
     public TaskStatus getStatus() {
+        return status.get();
+    }
+
+    public ObjectProperty<TaskStatus> statusProperty() {
         return status;
     }
 
     public void setStatus(TaskStatus status) {
-        this.status = status;
+        this.status.set(status);
     }
 
     public Date getDueDate() {
+        return dueDate.get();
+    }
+
+    public ObjectProperty<Date> dueDateProperty() {
         return dueDate;
     }
 
     public void setDueDate(Date dueDate) {
-        this.dueDate = dueDate;
+        this.dueDate.set(dueDate);
     }
 }
