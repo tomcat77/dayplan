@@ -1,4 +1,4 @@
-package dayplan.desktop.ui.model;
+package dayplan.desktop.model;
 
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
@@ -7,9 +7,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author vmuravlev
@@ -122,5 +120,9 @@ public class DayPlan {
         dayPlan.routineList.add(new Routine("Push-ups"));
 
         return dayPlan;
+    }
+
+    public void addNote(String text) {
+        this.noteList.add(new Note(text));
     }
 }

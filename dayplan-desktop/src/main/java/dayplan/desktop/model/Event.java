@@ -1,4 +1,4 @@
-package dayplan.desktop.ui.model;
+package dayplan.desktop.model;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;

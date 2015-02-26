@@ -1,6 +1,6 @@
 package dayplan.desktop.ui;
 
-import dayplan.desktop.ui.model.Task;
+import dayplan.desktop.model.Task;
 import javafx.beans.property.StringProperty;
 import javafx.beans.property.adapter.JavaBeanStringPropertyBuilder;
 import javafx.beans.value.ChangeListener;

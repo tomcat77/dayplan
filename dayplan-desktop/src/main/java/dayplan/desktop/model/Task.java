@@ -1,4 +1,4 @@
-package dayplan.desktop.ui.model;
+package dayplan.desktop.model;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -24,7 +24,7 @@ public class Task {
     public Task(String title) {
         this();
         this.setTitle(title);
-        this.setStatus(TaskStatus.UNCOMPLETE);
+        this.setStatus(TaskStatus.UNCOMPLETED);
     }
 
     public String getTitle() {
