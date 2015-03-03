@@ -7,12 +7,10 @@ import javafx.beans.property.*;
  */
 public class Routine {
     private StringProperty title;
-    private BooleanProperty complete;
     private IntegerProperty repeatQty;
 
     public Routine() {
         this.title = new SimpleStringProperty();
-        this.complete = new SimpleBooleanProperty();
         this.repeatQty = new SimpleIntegerProperty();
     }
 
@@ -32,18 +30,6 @@ public class Routine {
 
     public void setTitle(String title) {
         this.title.set(title);
-    }
-
-    public boolean getComplete() {
-        return complete.get();
-    }
-
-    public BooleanProperty completeProperty() {
-        return complete;
-    }
-
-    public void setComplete(boolean complete) {
-        this.complete.set(complete);
     }
 
     public int getRepeatQty() {

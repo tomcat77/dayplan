@@ -1,15 +1,10 @@
 package dayplan.desktop.ui;
 
-import dayplan.desktop.model.DayPlan;
-import dayplan.desktop.model.Note;
-import dayplan.desktop.model.Task;
-import dayplan.desktop.model.TaskStatus;
+import dayplan.desktop.model.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 import org.apache.commons.lang3.StringUtils;
 
@@ -29,7 +24,13 @@ public class DayPlanController implements Initializable {
     private TableView<Task> tasksTable;
 
     @FXML
+    private TableView<Event> eventsTable;
+
+    @FXML
     private ListView<Note> notesList;
+
+    @FXML
+    private TableView<RoutineJournal> routinesTable;
 
     @FXML
     private TextField newNoteTextField;
@@ -40,10 +41,41 @@ public class DayPlanController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         todayLabel.setText(String.format("%1$tA, %1$td.%1$tm.%1$tY", new Date()));
 
+        configureEventTable();
         configureTaskTable();
         configureNoteList();
+        configureRoutineTable();
 
         showPlan(DayPlan.createSample());
+    }
+
+    private void configureRoutineTable() {
+        TableColumn<RoutineJournal, String> titleColumn = new TableColumn<>("Routine");
+        titleColumn.setCellValueFactory(new PropertyValueFactory<RoutineJournal, String>("routineTitle"));
+
+        TableColumn<RoutineJournal, Integer> iterationsColumn = new TableColumn<>("Qty");
+        iterationsColumn.setCellValueFactory(new PropertyValueFactory<RoutineJournal, Integer>("iterations"));
+
+        routinesTable.getColumns().add(titleColumn);
+        routinesTable.getColumns().add(iterationsColumn);
+    }
+
+    private void configureEventTable() {
+        TableColumn<Event, Date> timeColumn = new TableColumn<>("Time");
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Event, Date>("dueDate"));
+        timeColumn.setCellFactory(new Callback<TableColumn<Event, Date>, TableCell<Event, Date>>() {
+            @Override
+            public TableCell<Event, Date> call(TableColumn<Event, Date> eventDateTableColumn) {
+                return new Cells.EventTimeCell();
+            }
+        });
+
+        TableColumn<Event, String> titleColumn = new TableColumn<>("Title");
+        titleColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("title"));
+        titleColumn.setPrefWidth(350);
+
+        eventsTable.getColumns().add(timeColumn);
+        eventsTable.getColumns().add(titleColumn);
     }
 
     private void configureNoteList() {
@@ -52,6 +84,7 @@ public class DayPlanController implements Initializable {
 
     private void configureTaskTable() {
         TableColumn<Task, String> titleColumn = new TableColumn<>("Title");
+        titleColumn.setPrefWidth(350);
         titleColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("title"));
 
         TableColumn<Task, TaskStatus> statusColumn = new TableColumn<>();
@@ -59,7 +92,7 @@ public class DayPlanController implements Initializable {
         statusColumn.setCellFactory(new Callback<TableColumn<Task, TaskStatus>, TableCell<Task, TaskStatus>>() {
             @Override
             public TableCell<Task, TaskStatus> call(TableColumn<Task, TaskStatus> taskTaskStatusTableColumn) {
-                return new TaskStatusCell();
+                return new Cells.TaskStatusCell();
             }
         });
 
@@ -72,6 +105,8 @@ public class DayPlanController implements Initializable {
 
         notesList.setItems(dayPlan.notesProperty());
         tasksTable.setItems(dayPlan.getTasks());
+        eventsTable.setItems(dayPlan.getEvents());
+        routinesTable.setItems(dayPlan.getRoutines());
     }
 
     @FXML
@@ -83,38 +118,4 @@ public class DayPlanController implements Initializable {
         }
     }
 
-    private static class TaskStatusCell extends TableCell<Task, TaskStatus> {
-
-        private static final Image COMPLETE_ICON = new Image("icons/checkbox.png");
-        private static final Image UNCOMPLETED_ICON = new Image("icons/bullet_square_grey.png");
-        private static final Image WAITING_ICON = new Image("icons/warning.png");
-        private static final Image REJECTED_ICON = new Image("icons/forbidden.png");
-
-        @Override
-        public void updateItem(TaskStatus taskStatus, boolean empty) {
-            super.updateItem(taskStatus, empty);
-
-            if (empty) {
-                return;
-            }
-
-            ImageView imageView = new ImageView();
-            switch (taskStatus) {
-                case COMPLETE:
-                    imageView.setImage(COMPLETE_ICON);
-                    break;
-                case REJECTED:
-                    imageView.setImage(REJECTED_ICON);
-                    break;
-                case UNCOMPLETED:
-                    imageView.setImage(UNCOMPLETED_ICON);
-                    break;
-                case WAITING:
-                    imageView.setImage(WAITING_ICON);
-                    break;
-            }
-
-            setGraphic(imageView);
-        }
-    }
 }

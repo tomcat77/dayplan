@@ -21,12 +21,12 @@
         <RowConstraints maxHeight="293.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="293.0" minHeight="0.0" prefHeight="23.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="566.0" minHeight="10.0" prefHeight="254.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="566.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="566.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="566.0" minHeight="10.0" prefHeight="161.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="566.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="566.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="566.0" minHeight="10.0" prefHeight="139.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <Label fx:id="todayLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="39.0" prefWidth="907.0" styleClass="date-label" text="Current date" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
+        <Label fx:id="todayLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="39.0" prefWidth="907.0" style="-fx-background-color: lightgray;" styleClass="section-label" text="Current date" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
             <font>
                 <Font size="27.0" />
             </font>
@@ -40,17 +40,17 @@
                 <ListView fx:id="notesList" prefHeight="251.0" prefWidth="435.0" />
             </content>
         </ScrollPane>
-        <Label contentDisplay="CENTER" prefHeight="37.0" prefWidth="451.0" styleClass="task-header" text="Tasks" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" GridPane.columnSpan="2" GridPane.rowIndex="1">
+        <Label contentDisplay="CENTER" prefHeight="37.0" prefWidth="451.0" style="-fx-background-color: lightblue;" styleClass="section-label" text="Tasks" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" GridPane.columnSpan="2" GridPane.rowIndex="1">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label prefHeight="36.0" prefWidth="433.0" styleClass="notes-header" text="Notes" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
+        <Label prefHeight="36.0" prefWidth="433.0" style="-fx-background-color: orange;" styleClass="section-label" text="Notes" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label prefHeight="33.0" prefWidth="456.0" styleClass="events-header" text="Events" GridPane.columnSpan="2" GridPane.rowIndex="4" GridPane.vgrow="NEVER">
+        <Label prefHeight="33.0" prefWidth="456.0" style="-fx-background-color: pink;" styleClass="section-label" text="Events" GridPane.columnSpan="2" GridPane.rowIndex="4" GridPane.vgrow="NEVER">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -59,17 +59,17 @@
         <TextField fx:id="newEventTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
         <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="6">
             <content>
-                <TableView prefHeight="166.0" prefWidth="449.0" />
+                <TableView fx:id="eventsTable" prefHeight="166.0" prefWidth="449.0" />
             </content>
         </ScrollPane>
-        <Label prefHeight="33.0" prefWidth="439.0" styleClass="routines-header" text="Routines" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="NEVER">
+        <Label prefHeight="33.0" prefWidth="439.0" style="-fx-background-color: lightgreen;" styleClass="section-label" text="Routines" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="NEVER">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
         <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5" GridPane.rowSpan="2">
             <content>
-                <TableView prefHeight="200.0" prefWidth="422.0" />
+                <TableView fx:id="routinesTable" prefHeight="200.0" prefWidth="422.0" />
             </content>
         </ScrollPane>
         <ScrollPane fx:id="tasksScrollPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">

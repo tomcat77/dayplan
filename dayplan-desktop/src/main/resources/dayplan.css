@@ -1,24 +1,9 @@
-.task-header {
-    -fx-background-color: #1a8bff;
-    -fx-text-fill: black;
-}
-
-.notes-header {
-    -fx-background-color: #ff963d;
-    -fx-text-fill: black;
-}
-
-.events-header {
-    -fx-background-color: #ff6166;
-    -fx-text-fill: black;
-}
-
-.routines-header {
-    -fx-background-color: #1d8a23;
-    -fx-text-fill: black;
-}
-
-.date-label {
-    -fx-background-color: lightgray;
+.section-label {
+    -fx-background-radius: 6pt;
+    -fx-effect: dropshadow(gaussian, darkgray, 10, 0.5, 2, 2);
     -fx-font-weight: bold;
+    -fx-font-size: 18pt;
+    -fx-padding: 4pt;
 }
+
+.events-label

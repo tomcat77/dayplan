@@ -21,8 +21,8 @@ public class DayPlan {
     private ObservableList<Event> eventList;
     private ListProperty<Event> events;
 
-    private ObservableList<Routine> routineList;
-    private ListProperty<Routine> routines;
+    private ObservableList<RoutineJournal> routineList;
+    private ListProperty<RoutineJournal> routines;
 
     private ObservableList<Note> noteList;
     private ListProperty<Note> notes;
@@ -79,15 +79,15 @@ public class DayPlan {
         this.events.set(events);
     }
 
-    public ObservableList<Routine> getRoutines() {
+    public ObservableList<RoutineJournal> getRoutines() {
         return routines.get();
     }
 
-    public ListProperty<Routine> routinesProperty() {
+    public ListProperty<RoutineJournal> routinesProperty() {
         return routines;
     }
 
-    public void setRoutines(ObservableList<Routine> routines) {
+    public void setRoutines(ObservableList<RoutineJournal> routines) {
         this.routines.set(routines);
     }
 
@@ -115,9 +115,15 @@ public class DayPlan {
         dayPlan.noteList.add(new Note("Daniel promised to complete report at 16:00"));
         dayPlan.noteList.add(new Note("Buy flowers for Gabriela"));
 
-        dayPlan.routineList.add(new Routine("Eyes"));
-        dayPlan.routineList.add(new Routine("Back"));
-        dayPlan.routineList.add(new Routine("Push-ups"));
+        RoutineJournal eyes = new RoutineJournal(new Routine("Eyes"));
+        eyes.setIterations(1);
+        dayPlan.routineList.add(eyes);
+        RoutineJournal back = new RoutineJournal(new Routine("Back"));
+        back.setIterations(2);
+        dayPlan.routineList.add(back);
+        RoutineJournal pushUps = new RoutineJournal(new Routine("Push-ups"));
+        pushUps.setIterations(3);
+        dayPlan.routineList.add(pushUps);
 
         return dayPlan;
     }
