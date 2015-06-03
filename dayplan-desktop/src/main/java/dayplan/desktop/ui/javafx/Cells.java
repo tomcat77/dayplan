@@ -1,4 +1,4 @@
-package dayplan.desktop.ui;
+package dayplan.desktop.ui.javafx;
 
 import dayplan.desktop.model.Event;
 import dayplan.desktop.model.Task;

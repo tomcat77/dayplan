@@ -1,4 +1,4 @@
-package dayplan.desktop.ui;
+package dayplan.desktop.ui.javafx;
 
 import javafx.beans.binding.IntegerBinding;
 import javafx.beans.binding.NumberBinding;

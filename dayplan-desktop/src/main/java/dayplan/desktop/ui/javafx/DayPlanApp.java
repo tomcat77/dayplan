@@ -1,4 +1,4 @@
-package dayplan.desktop.ui;
+package dayplan.desktop.ui.javafx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

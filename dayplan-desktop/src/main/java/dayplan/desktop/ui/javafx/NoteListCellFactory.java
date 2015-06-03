@@ -1,4 +1,4 @@
-package dayplan.desktop.ui;
+package dayplan.desktop.ui.javafx;
 
 import dayplan.desktop.model.Note;
 import javafx.scene.control.ListCell;

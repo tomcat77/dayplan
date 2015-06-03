@@ -29,6 +29,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.miglayout</groupId>
+            <artifactId>miglayout</artifactId>
+            <version>3.7.3.1</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
@@ -50,7 +56,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>2.0</version>
                 <configuration>
-                    <mainClass>dayplan.desktop.ui.DayPlanApp</mainClass>
+                    <mainClass>dayplan.desktop.ui.javafx.DayPlanApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>
