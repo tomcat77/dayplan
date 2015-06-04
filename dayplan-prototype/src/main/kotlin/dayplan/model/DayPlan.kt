@@ -11,9 +11,12 @@ enum class TaskStatus(val score: Double = 0.0) {
     COMPLETE: TaskStatus(1.0)
 }
 
-data class PomodoroTrack(val estimated: Int = 1, var complete: Int = 0) {
+data class PomodoroTrack(var estimated: Int = 1, var complete: Int = 0) {
     fun oneMore() {
         this.complete++;
+        if (this.complete > this.estimated) {
+            this.estimated++;
+        }
     }
 
     fun score(): Double {
@@ -99,6 +102,7 @@ class DayPlan(val date: Date = Date()) {
         tasks.forEach{ dayScore += it.score()  }
         routines.forEach { dayScore += it.score() }
 
+        // total day score consists of 3 parts: tasks, pomodoros and routines. Total max score = 3.
         return (dayScore * 100.0 / 3.0).toInt();
     }
 
